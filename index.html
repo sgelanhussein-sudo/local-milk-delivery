@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Milk Delivery</title>
+<style>
+:root {
+  --green:#123d2b;
+  --light:#1d6041;
+  --cream:#fff9e9;
+  --gold:#d6ad48;
+}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:#24352b;
+  line-height:1.6;
+}
+header {
+  background:var(--green);
+  color:white;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.logo {font-size:20px;font-weight:bold}
+.logo span {color:var(--gold)}
+nav {display:flex;gap:15px;flex-wrap:wrap}
+nav a {color:white;text-decoration:none;font-size:14px}
+.hero {
+  background:linear-gradient(120deg,#123d2b,#28734d);
+  color:white;
+  text-align:center;
+  padding:75px 20px;
+}
+.hero h1 {font-size:42px;line-height:1.15}
+.hero p {max-width:600px;margin:20px auto}
+.hero-art {font-size:65px;margin:25px}
+.btn {
+  display:inline-block;
+  padding:12px 22px;
+  background:var(--gold);
+  color:#173526;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+  border:0;
+  cursor:pointer;
+}
+section {padding:55px 6%}
+h2 {text-align:center;color:var(--green)}
+.intro {text-align:center;max-width:700px;margin:auto}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.card {
+  background:white;
+  padding:24px;
+  border-radius:16px;
+  box-shadow:0 5px 18px #00000012;
+  text-align:center;
+}
+.card h3 {color:var(--green)}
+.icon {font-size:45px}
+.products {background:#f0ead8}
+.order {
+  max-width:650px;
+  margin:auto;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 5px 18px #00000012;
+}
+label {display:block;margin-top:14px;font-weight:bold}
+input,select,textarea {
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font:inherit;
+}
+button {margin-top:20px}
+.contact {
+  text-align:center;
+  background:#e5eddf;
+}
+footer {
+  text-align:center;
+  background:#0c2c20;
+  color:white;
+  padding:22px;
+}
+@media(max-width:600px) {
+  header {flex-direction:column}
+  .hero h1 {font-size:34px}
+  nav {justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🥛 LOCAL MILK <span>DELIVERY</span></div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#farmers">Farmers</a>
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-art">🐄 🥛 🚚</div>
+  <h1>Good Milk.<br>Closer to Home.</h1>
+  <p>Connecting local dairy farmers with families through convenient ordering and dependable delivery.</p>
+  <a class="btn" href="#order">Request Your Order</a>
+</section>
+
+<section id="about">
+  <h2>About Our Service</h2>
+  <p class="intro">
+    Local Milk Delivery is a proposed service connecting
+    dairy farmers with families seeking fresh milk and
+    convenient delivery.
+  </p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🌱</div>
+      <h3>Local Partnerships</h3>
+      <p>Supporting local dairy farmers and strengthening their market access.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🧊</div>
+      <h3>Quality Care</h3>
+      <p>Prioritizing hygienic handling, suitable storage and safe delivery.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🏡</div>
+      <h3>Home Convenience</h3>
+      <p>Making it easier for families to request dairy products.</p>
+    </div>
+  </div>
+</section>
+
+<section id="farmers">
+  <h2>Connecting with Farmers</h2>
+  <p class="intro">Our aim is to build transparent and reliable relationships with local dairy producers.</p>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🤝</div>
+      <h3>Fair Partnerships</h3>
+      <p>Building clear agreements with dairy suppliers.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🔍</div>
+      <h3>Quality Priorities</h3>
+      <p>Working toward appropriate milk testing and food safety practices.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🚚</div>
+      <h3>Reliable Delivery</h3>
+      <p>Planning efficient delivery routes and schedules.</p>
+    </div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <h2>Our Products</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="icon">🥛</div>
+      <h3>Fresh Milk</h3>
+      <p>Milk from participating local dairy farms.</p>
+      <strong>Price on request</strong>
+    </div>
+    <div class="card">
+      <div class="icon">🧈</div>
+      <h3>Butter</h3>
+      <p>Planned product option, subject to availability.</p>
+      <strong>Price on request</strong>
+    </div>
+    <div class="card">
+      <div class="icon">🧀</div>
+      <h3>Cheese & Yoghurt</h3>
+      <p>Potential future products as the service grows.</p>
+      <strong>Price on request</strong>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <h2>Request a Delivery</h2>
+  <p class="intro">Complete the form to prepare an order request.</p>
+  <form class="order" id="orderForm">
+    <label for="customer">Your Name</label>
+    <input id="customer" required placeholder="Enter your name">
+
+    <label for="contact">Email or Phone Number</label>
+    <input id="contact" required placeholder="Your contact details">
+
+    <label for="product">Choose Product</label>
+    <select id="product" required>
+      <option value="">Select product</option>
+      <option>Fresh Milk</option>
+      <option>Butter</option>
+      <option>Cheese</option>
+      <option>Yoghurt</option>
+    </select>
+
+    <label for="quantity">Quantity</label>
+    <select id="quantity" required>
+      <option value="">Select quantity</option>
+      <option>1 litre</option>
+      <option>2 litres</option>
+      <option>3 litres</option>
+      <option>5 litres</option>
+    </select>
+
+    <label for="address">Delivery Address</label>
+    <input id="address" required placeholder="Town and area">
+
+    <label for="notes">Additional Details</label>
+    <textarea id="notes" rows="3" placeholder="Preferred delivery time or other details"></textarea>
+
+    <button class="btn" type="submit">Send Order Request</button>
+    <p><small>This form prepares an email. Your order is not confirmed until availability, price and delivery are agreed.</small></p>
+  </form>
+</section>
+
+<section class="contact" id="contact">
+  <h2>Contact Us</h2>
+  <p>Interested in our service or a farmer partnership?</p>
+  <a class="btn" href="mailto:sgelanhussein@gmail.com">Email Us</a>
+  <p>sgelanhussein@gmail.com</p>
+</section>
+
+<footer>
+  © <span id="year"></span> Local Milk Delivery |
+  Fresh from Local Farms
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const customer = document.getElementById("customer").value;
+  const contact = document.getElementById("contact").value;
+  const product = document.getElementById("product").value;
+  const quantity = document.getElementById("quantity").value;
+  const address = document.getElementById("address").value;
+  const notes = document.getElementById("notes").value;
+
+  const subject = "Local Milk Delivery Order Request";
+  const body =
+    "Name: " + customer +
+    "\nContact: " + contact +
+    "\nProduct: " + product +
+    "\nQuantity: " + quantity +
+    "\nAddress: " + address +
+    "\nDetails: " + notes;
+
+  window.location.href =
+    "mailto:sgelanhussein@gmail.com?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+});
+</script>
+
+</body>
+</html>
