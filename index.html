@@ -163,12 +163,12 @@ footer {
       <h3>Fair Partnerships</h3>
       <p>Building clear agreements with dairy suppliers.</p>
     </div>
-    <div class="card">
+    <div class="<strong>150 ETB / litre</strong>">
       <div class="icon">🔍</div>
       <h3>Quality Priorities</h3>
       <p>Working toward appropriate milk testing and food safety practices.</p>
     </div>
-    <div class="card">
+    <div class="<strong>150 ETB / litre</strong>">
       <div class="icon">🚚</div>
       <h3>Reliable Delivery</h3>
       <p>Planning efficient delivery routes and schedules.</p>
@@ -252,33 +252,42 @@ footer {
 </footer>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
 document.getElementById("orderForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const customer = document.getElementById("customer").value;
-  const contact = document.getElementById("contact").value;
-  const product = document.getElementById("product").value;
-  const quantity = document.getElementById("quantity").value;
-  const address = document.getElementById("address").value;
-  const notes = document.getElementById("notes").value;
+    // 1. Properly gather ALL form inputs
+    // Using optional chaining (?.) and a fallback value avoids crashes if elements don't exist
+    const name = document.getElementById("name")?.value || "";
+    const contact = document.getElementById("contact")?.value || "";
+    const product = document.getElementById("product")?.value || "Milk";
+    const quantity = document.getElementById("quantity")?.value || "1";
+    const address = document.getElementById("address")?.value || "";
+    const notes = document.getElementById("notes")?.value || "";
 
-  const subject = "Local Milk Delivery Order Request";
-  const body =
-    "Name: " + customer +
-    "\nContact: " + contact +
-    "\nProduct: " + product +
-    "\nQuantity: " + quantity +
-    "\nAddress: " + address +
-    "\nDetails: " + notes;
+    // 2. Prompt for phone selection and validate input
+    const choice = prompt("Choose WhatsApp number:\n1. 0914978912\n2. 0964447813\nEnter 1 or 2:");
 
-  window.location.href =
-    "mailto:sgelanhussein@gmail.com?subject=" +
-    encodeURIComponent(subject) +
-    "&body=" + encodeURIComponent(body);
+    if (choice !== "1" && choice !== "2") {
+        alert("Invalid selection. Order cancelled.");
+        return;
+    }
+
+    // 3. Assign the correct target country-coded number
+    const targetNumber = (choice === "1") ? "251914978912" : "251964447813";
+
+    // 4. Construct the structured message payload safely
+    const message = `LOCAL MILK DELIVERY ORDER
+Name: ${name}
+Contact: ${contact}
+Product: ${product}
+Quantity: ${quantity}
+Address: ${address}
+Details: ${notes}`;
+
+    // 5. Open WhatsApp API window cleanly
+    window.open(`https://wa.me{targetNumber}?text=${encodeURIComponent(message)}`, "_blank");
 });
+
 </script>
 
 </body>
