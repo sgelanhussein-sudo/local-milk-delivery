@@ -218,15 +218,20 @@ footer {
       <option>Cheese</option>
       <option>Yoghurt</option>
     </select>
+<label for="quantity">Quantity (litres)</label>
+<select id="quantity" required>
+    <option value="">Select quantity</option>
+    <option value="1 litre">1 litre</option>
+    <option value="2 litres">2 litres</option>
+    <option value="3 litres">3 litres</option>
+    <option value="5 litres">5 litres</option>
+    <option value="10 litres">10 litres</option>
+    <option value="Other">Other quantity</option>
+</select>
 
-    <label for="quantity">Quantity</label>
-    <select id="quantity" required>
-      <option value="">Select quantity</option>
-      <option>1 litre</option>
-      <option>2 litres</option>
-      <option>3 litres</option>
-      <option>5 litres</option>
-    </select>
+<label for="otherQuantity">Other quantity (litres)</label>
+<input type="number" id="otherQuantity"
+       placeholder="Enter your required quantity" min="1">
 
     <label for="address">Delivery Address</label>
     <input id="address" required placeholder="Town and area">
