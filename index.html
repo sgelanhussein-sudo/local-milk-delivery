@@ -256,44 +256,53 @@ footer {
   Fresh from Local Farms
 </footer>
 
+
 <script>
 document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    // 1. Properly gather ALL form inputs
-    // Using optional chaining (?.) and a fallback value avoids crashes if elements don't exist
     const name = document.getElementById("name")?.value || "";
     const contact = document.getElementById("contact")?.value || "";
     const product = document.getElementById("product")?.value || "Milk";
-    const quantity = document.getElementById("quantity")?.value || "1";
+    const selectedQuantity = document.getElementById("quantity")?.value || "";
+    const otherQuantity = document.getElementById("otherQuantity")?.value.trim() || "";
     const address = document.getElementById("address")?.value || "";
     const notes = document.getElementById("notes")?.value || "";
 
-    // 2. Prompt for phone selection and validate input
-    const choice = prompt("Choose WhatsApp number:\n1. 0914978912\n2. 0964447813\nEnter 1 or 2:");
-
-    if (choice !== "1" && choice !== "2") {
-        alert("Invalid selection. Order cancelled.");
+    if (!selectedQuantity) {
+        alert("Please select a quantity.");
         return;
     }
 
-    // 3. Assign the correct target country-coded number
-    const targetNumber = (choice === "1") ? "251914978912" : "251964447813";
+    if (selectedQuantity === "Other" &&
+        (!otherQuantity || Number(otherQuantity) <= 0)) {
+        alert("Please enter a valid quantity in litres.");
+        return;
+    }
 
-    // 4. Construct the structured message payload safely
+    const quantity = selectedQuantity === "Other"
+        ? otherQuantity + " litres"
+        : selectedQuantity;
+
     const message = `LOCAL MILK DELIVERY ORDER
+
 Name: ${name}
 Contact: ${contact}
 Product: ${product}
 Quantity: ${quantity}
 Address: ${address}
-Details: ${notes}`;
+Details: ${notes}
 
-    // 5. Open WhatsApp API window cleanly
-    window.open(`https://wa.me{targetNumber}?text=${encodeURIComponent(message)}`, "_blank");
+Please confirm the latest price before processing this order.`;
+
+    const emailLink = "mailto:sgelanhussein@gmail.com"
+        + "?subject=" + encodeURIComponent("New Milk Delivery Order")
+        + "&body=" + encodeURIComponent(message);
+
+    window.location.href = emailLink;
 });
-
 </script>
+
 
 </body>
 </html>
