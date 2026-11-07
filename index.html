@@ -280,7 +280,7 @@ footer {
 document.getElementById("orderForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name")?.value || "";
+    const name = document.getElementById("customer")?.value || "";
     const contact = document.getElementById("contact")?.value || "";
     const product = document.getElementById("product")?.value || "Milk";
     const selectedQuantity = document.getElementById("quantity")?.value || "";
